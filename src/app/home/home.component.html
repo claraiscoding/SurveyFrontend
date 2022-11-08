@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="toolbar">
+    <img src="./assets/images/logo.jpg" alt="Logo" style="width: 75px; height: 75px">
+  </div>
+</header>
+
+<body style="padding:300px">
+  <h1>Home</h1>
+  <button mat-stroked-button (click)="openList()" id="homeJoinB">Join Survey</button>
+  <button mat-stroked-button id="homeCreateB">Create Survey</button>
+  <button mat-stroked-button id="homeProB">Get Pro Version</button>
+  <router-outlet></router-outlet>
+</body>
+
+<footer class="footer">
+  <h3>Messaggi Footer</h3>
+</footer>

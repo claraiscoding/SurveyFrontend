@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<mat-dialog-content class="mat-typography">
+  <app-login *ngIf="data.component == 'login'"></app-login>
+  <!--<app-pro *ngIf="data.component == 'pro'"></app-pro>-->
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button [mat-dialog-close]="true" *ngIf="data.component == 'login'" cdkFocusInitial>Confirm</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+</mat-dialog-actions>
