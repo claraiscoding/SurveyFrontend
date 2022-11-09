@@ -5,21 +5,27 @@
       <mat-error class="login-error">{{ this.error }}</mat-error>
       <form [formGroup]="form">
         <mat-card-content>
-          <mat-form-field class="login-field">
-            <input matInput type="text" placeholder="La tua mail" formControlName="mail" onInput="this.value = this.value.toLowerCase()">
-            <mat-error *ngIf="hasError('mail', 'required')">Email obbligatoria</mat-error>
+          <mat-form-field class="register-field">
+            <input matInput type="text" placeholder="Your email" formControlName="mail" onInput="this.value = this.value.toLowerCase()">
+            <mat-error *ngIf="hasError('mail', 'required')">Email is mandatory</mat-error>
           </mat-form-field>
           <br>
-          <mat-form-field class="login-field">
-            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="La tua password" formControlName="pass"/>
+          <mat-form-field class="register-field">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Your password" formControlName="pass"/>
             <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-            <mat-error *ngIf="hasError('pass', 'required')">Password obbligatoria</mat-error>
+            <mat-error *ngIf="hasError('pass', 'required')">Password is mandatory</mat-error>
           </mat-form-field>
+          <br>
+            <mat-radio-group formControlName="isAdmin">
+              <mat-radio-button value=0>Base User</mat-radio-button>
+              <br>
+              <mat-radio-button value=1>Pro User</mat-radio-button>
+              <mat-error *ngIf="hasError('isAdmin', 'required')">Must choose a user profile</mat-error>
+            </mat-radio-group>
         </mat-card-content>
-
         <mat-dialog-actions>
-          <button mat-raised-button class="login-button" color="primary" (click)="register()" [disabled]="!form.valid">CONFERMA</button>
-          <button mat-raised-button class="login-button" color="basic"   (click)="close()">CHIUDI</button>
+          <button mat-raised-button class="register-button" color="primary" (click)="register()" [disabled]="!form.valid">Confirm</button>
+          <button mat-raised-button class="register-button" color="basic"   (click)="close()">Close</button>
         </mat-dialog-actions>
 
       </form>

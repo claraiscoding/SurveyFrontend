@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       mail: new FormControl('', [Validators.required]),
-      pass: new FormControl('', [Validators.required])
+      pass: new FormControl('', [Validators.required]),
+      isAdmin: new FormControl('', [Validators.required])
     });
   }
 

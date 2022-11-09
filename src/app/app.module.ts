@@ -18,6 +18,7 @@ import {HomeComponent} from "./home/home.component";
 import {PartecipateComponent} from "./partecipate/partecipate.component";
 import { RegisterComponent } from './register/register.component';
 import { FirstHomeComponent } from './first-home/first-home.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -31,18 +32,19 @@ import { FirstHomeComponent } from './first-home/first-home.component';
     RegisterComponent,
     FirstHomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    HttpClientModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatDialogModule,
+        HttpClientModule,
+        MatCardModule,
+        MatInputModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatRadioModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
