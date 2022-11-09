@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestApiService } from "../services/rest-api.service";
 import { MatDialogRef } from "@angular/material/dialog";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
