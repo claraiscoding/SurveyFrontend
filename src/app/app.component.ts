@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogTemplateComponent } from "./dialog-template/dialog-template.component";
+import {LoginComponent} from "./login/login.component";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,13 @@ export class AppComponent {
 
     config.disableClose = true;
     config.id           = "login-component";
-    config.height       = "350px";
     config.width        = "600px";
-    config.data = {
-      title: "Login or Register",
-      component: "login"
-    };
+    config.height       = "400px";
 
-    const dialogRef = this.dialog.open(DialogTemplateComponent, config);
+    const dialogRef = this.dialog.open(LoginComponent, config);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
   }
 }
