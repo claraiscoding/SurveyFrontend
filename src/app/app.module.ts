@@ -17,6 +17,7 @@ import {SurveyListComponent} from "./survey-list/survey-list.component";
 import {HomeComponent} from "./home/home.component";
 import {PartecipateComponent} from "./partecipate/partecipate.component";
 import { RegisterComponent } from './register/register.component';
+import { FirstHomeComponent } from './first-home/first-home.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     SurveyListComponent,
     HomeComponent,
     PartecipateComponent,
-    RegisterComponent
+    RegisterComponent,
+    FirstHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestApiService } from "../services/rest-api.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import { MatDialogRef } from "@angular/material/dialog";
 
 
 @Component({
