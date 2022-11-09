@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       .then((res) => {
         this.dialogRef.close("register-ok");
       }).catch((err) => {
-        this.error = "Utente non valido";
+        this.error = "User already exists";
       });
   }
 

@@ -23,6 +23,10 @@ export class FirstHomeComponent implements OnInit {
     config.id           = "login-component";
     config.width        = "600px";
     config.height       = "400px";
+    config.data         = {
+      title: "Login",
+      component: "login"
+    }
 
     const dialogRef = this.dialog.open(LoginComponent, config);
 
@@ -39,6 +43,10 @@ export class FirstHomeComponent implements OnInit {
     config.id           = "register-component";
     config.width        = "600px";
     config.height       = "400px";
+    config.data         = {
+      title: "Register",
+      component: "register"
+    }
 
     const dialogRef = this.dialog.open(RegisterComponent, config);
 

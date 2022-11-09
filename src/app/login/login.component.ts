@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       .then((res) => {
         this.dialogRef.close("login-ok");
       }).catch((err) => {
-        this.error = "Utente non riconosciuto";
+        this.error = "User not found";
       });
   }
 

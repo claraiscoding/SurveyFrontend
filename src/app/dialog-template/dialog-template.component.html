@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
 <mat-dialog-content class="mat-typography">
   <app-login *ngIf="data.component == 'login'"></app-login>
+  <app-register *ngIf="data.component == 'register'"></app-register>
 </mat-dialog-content>
