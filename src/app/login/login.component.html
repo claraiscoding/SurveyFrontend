@@ -1,16 +1,14 @@
 <div class="full-page">
   <mat-dialog-content class="mat-typography">
-
     <mat-card fxLayoutAlign="center center">
-
       <mat-error class="login-error">{{ this.error }}</mat-error>
-
       <form [formGroup]="form">
         <mat-card-content>
           <mat-form-field class="login-field">
             <input matInput type="text" placeholder="La tua mail" formControlName="mail" onInput="this.value = this.value.toLowerCase()">
             <mat-error *ngIf="hasError('mail', 'required')">Email obbligatoria</mat-error>
           </mat-form-field>
+          <br>
           <mat-form-field class="login-field">
             <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="La tua password" formControlName="pass"/>
             <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -27,10 +25,4 @@
 
     </mat-card>
   </mat-dialog-content>
-
-
-  <p>{{ form.value }}</p>
-
-
-
 </div>

@@ -16,6 +16,7 @@ import { ReactiveFormsModule      } from "@angular/forms";
 import {SurveyListComponent} from "./survey-list/survey-list.component";
 import {HomeComponent} from "./home/home.component";
 import {PartecipateComponent} from "./partecipate/partecipate.component";
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {PartecipateComponent} from "./partecipate/partecipate.component";
     DialogTemplateComponent,
     SurveyListComponent,
     HomeComponent,
-    PartecipateComponent
+    PartecipateComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
