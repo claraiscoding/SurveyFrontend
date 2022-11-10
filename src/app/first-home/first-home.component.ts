@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from "../login/login.component";
 import { RegisterComponent } from "../register/register.component";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Router } from "@angular/router";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-first-home',
@@ -32,7 +32,15 @@ export class FirstHomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
-      if (result === "login-ok") this.router.navigate(['/home']);
+      if (result["loginCheck"]) {
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            "mail": result["mail"]
+          },
+          skipLocationChange: true
+        };
+        this.router.navigate(['/home'], navigationExtras);
+      }
     });
   }
 

@@ -34,14 +34,14 @@ export class RegisterComponent implements OnInit {
 
     await this.ras.callApi('http://localhost:8080/survey/api/users', 'POST', this.form.value)
       .then((res) => {
-        this.dialogRef.close("register-ok");
+        this.dialogRef.close({"registerCheck": true, "mail": this.form.value.mail});
       }).catch((err) => {
         this.error = "User already exists";
       });
   }
 
   public close() {
-    this.dialogRef.close("register-ko");
+    this.dialogRef.close({"registerCheck": false, "mail": this.form.value.mail});
   }
 
   public hasError(controlName: string, errorName: string): boolean {

@@ -13,12 +13,12 @@ import { MatInputModule           } from '@angular/material/input';
 import { MatIconModule            } from '@angular/material/icon';
 import { MatButtonModule          } from '@angular/material/button';
 import { ReactiveFormsModule      } from "@angular/forms";
-import {SurveyListComponent} from "./survey-list/survey-list.component";
-import {HomeComponent} from "./home/home.component";
-import {PartecipateComponent} from "./partecipate/partecipate.component";
+import { SurveyListComponent } from "./survey-list/survey-list.component";
+import { HomeComponent } from "./home/home.component";
+import { PartecipateComponent } from "./partecipate/partecipate.component";
 import { RegisterComponent } from './register/register.component';
 import { FirstHomeComponent } from './first-home/first-home.component';
-import {MatRadioModule} from "@angular/material/radio";
+import { MatRadioModule } from "@angular/material/radio";
 
 
 @NgModule({

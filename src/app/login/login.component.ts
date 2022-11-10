@@ -33,14 +33,14 @@ export class LoginComponent implements OnInit {
 
     await this.ras.callApi('http://localhost:8080/survey/api/check-user', 'POST', this.form.value)
       .then((res) => {
-        this.dialogRef.close("login-ok");
+        this.dialogRef.close({"loginCheck": true, "mail": this.form.value.mail});
       }).catch((err) => {
         this.error = "User not found";
       });
   }
 
   public close() {
-    this.dialogRef.close("login-ko");
+    this.dialogRef.close({"loginCheck": false, "mail": this.form.value.mail});
   }
 
   public hasError(controlName: string, errorName: string): boolean {

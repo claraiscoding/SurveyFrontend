@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from "../services/rest-api.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {MatDialogConfig} from "@angular/material/dialog";
 import {DialogTemplateComponent} from "../dialog-template/dialog-template.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -9,12 +12,11 @@ import {DialogTemplateComponent} from "../dialog-template/dialog-template.compon
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
-  openList() {
-  }
-
+  public mail: string = "";
+  constructor (private route: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.mail = params["mail"];
+    });
   }
-
 }
