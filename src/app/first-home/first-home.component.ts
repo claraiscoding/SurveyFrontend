@@ -60,7 +60,15 @@ export class FirstHomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
-      if (result === "register-ok") this.router.navigate(['/home']);
+      if (result["registerCheck"]) {
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            "mail": result["mail"]
+          },
+          skipLocationChange: true
+        };
+        this.router.navigate(['/home'], navigationExtras);
+      }
     });
   }
 }

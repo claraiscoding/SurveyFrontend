@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from "../services/rest-api.service";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {MatDialogConfig} from "@angular/material/dialog";
-import {DialogTemplateComponent} from "../dialog-template/dialog-template.component";
-import {ActivatedRoute, Router} from "@angular/router";
+import { MatDialogConfig } from "@angular/material/dialog";
+import { DialogTemplateComponent } from "../dialog-template/dialog-template.component";
+import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -18,5 +18,14 @@ export class HomeComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.mail = params["mail"];
     });
+  }
+  public surveyList () {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "mail": this.mail
+      },
+      skipLocationChange: true
+    };
+    this.router.navigate(['/survey-list'], navigationExtras);
   }
 }

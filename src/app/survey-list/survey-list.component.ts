@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-survey-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyListComponent implements OnInit {
 
-  constructor() { }
-
+  public mail: string = "";
+  constructor(private route: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.mail = params["mail"];
+    });
   }
 
 }
