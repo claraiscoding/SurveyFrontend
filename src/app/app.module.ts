@@ -12,7 +12,7 @@ import { MatCardModule            } from '@angular/material/card';
 import { MatInputModule           } from '@angular/material/input';
 import { MatIconModule            } from '@angular/material/icon';
 import { MatButtonModule          } from '@angular/material/button';
-import { ReactiveFormsModule      } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SurveyListComponent } from "./survey-list/survey-list.component";
 import { HomeComponent } from "./home/home.component";
 import { PartecipateComponent } from "./partecipate/partecipate.component";
@@ -33,20 +33,21 @@ import { MatTableModule } from "@angular/material/table";
     RegisterComponent,
     FirstHomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    HttpClientModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatRadioModule,
-    MatTableModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatDialogModule,
+        HttpClientModule,
+        MatCardModule,
+        MatInputModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatRadioModule,
+        MatTableModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

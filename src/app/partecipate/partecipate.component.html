@@ -1,5 +1,12 @@
-<h1 mat-dialog-title>Here is the Survey!</h1>
+<h1 mat-dialog-title>Survey Title</h1>
 <mat-dialog-content class="mat-typography">
+  <label id="example-radio-group-label">Choose from the option:</label><br>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="myvalue">
+    <mat-radio-button class="example-radio-button" *ngFor="let obj of myoptions" [value]="obj">
+      {{obj}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div>Value chosen is : {{myvalue}}</div>
   <mat-dialog-actions>
     <button mat-raised-button class="partecipate-button" color="primary">Confirm</button>
     <button mat-raised-button class="partecipate-button" color="basic" (click)="close()">Close</button>

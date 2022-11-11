@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 import { RestApiService } from "../services/rest-api.service";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { PartecipateComponent } from "../partecipate/partecipate.component";
@@ -17,6 +17,20 @@ export class SurveyListComponent implements OnInit {
   public surveyDone: SURVEY_TABLE[] = [];
   public displayedColumns: string[] = ['Name', 'Category', 'Publishing Date', 'Ending Date', 'Created By', 'id'];
   public dataSource = this.surveyTable;
+  public chosen: SURVEY_TABLE = {
+    id: 9,
+    id_mail: "",
+    id_category: 0,
+    name: "",
+    description: "",
+    publish_date: "",
+    ending_date: "",
+    category: {
+      id: 0,
+      name: "",
+    }
+  };
+  public chosen_id: number = 0;
 
   constructor(private route: ActivatedRoute, private router: Router, private ras: RestApiService, public dialog: MatDialog) { }
 
@@ -33,7 +47,6 @@ export class SurveyListComponent implements OnInit {
       .then((res) => {
         this.surveyTable = res;
         this.dataSource = this.surveyTable;
-        //this.dialogRef.close({"loginCheck": true, "mail": this.form.value.mail});
       }).catch((err) => {
         this.error = "Surveys not found";
       });
@@ -54,15 +67,21 @@ export class SurveyListComponent implements OnInit {
     config.height       = "800px";
     config.data         = {
       title: "Survey",
-      component: "survey"
+      component: "survey",
+      mail: this.mail,
+      id_survey: this.chosen_id
     }
     const dialogRef = this.dialog.open(PartecipateComponent, config);
   }
 
-  public checkSurvey (row: any) {
+  public checkSurvey(row: any) {
     let ret = true;
     this.surveyDone.forEach(element => {
-      if (element.id === row['id']) ret = false;
+      if (element.id === row['id']) {
+        ret = false;
+        this.chosen = row;
+        this.chosen_id = row["id"];
+      }
     });
     return ret;
   }
