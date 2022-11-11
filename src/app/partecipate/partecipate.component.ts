@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-partecipate',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartecipateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<PartecipateComponent>) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  public close() {
+    this.dialogRef.close();
   }
-
 }

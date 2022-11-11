@@ -13,8 +13,7 @@ export class FirstHomeComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   openLogin() {
     const config = new MatDialogConfig();
