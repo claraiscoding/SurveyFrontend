@@ -19,6 +19,7 @@ import { PartecipateComponent } from "./partecipate/partecipate.component";
 import { RegisterComponent } from './register/register.component';
 import { FirstHomeComponent } from './first-home/first-home.component';
 import { MatRadioModule } from "@angular/material/radio";
+import { MatTableModule } from "@angular/material/table";
 
 
 @NgModule({
@@ -32,19 +33,20 @@ import { MatRadioModule } from "@angular/material/radio";
     RegisterComponent,
     FirstHomeComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatDialogModule,
-        HttpClientModule,
-        MatCardModule,
-        MatInputModule,
-        MatIconModule,
-        ReactiveFormsModule,
-        MatRadioModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatCardModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatTableModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
