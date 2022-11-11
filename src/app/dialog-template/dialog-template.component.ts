@@ -13,7 +13,5 @@ export class DialogTemplateComponent implements OnInit {
     component:  string
   }) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
