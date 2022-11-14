@@ -15,6 +15,7 @@ export class PartecipateComponent implements OnInit {
   public mail: string = this.data.mail;
   public id_survey: number = this.data.id_survey;
   public error: string = "";
+  public form!: FormGroup;
   public QnAs: QnA[] = [];
   public values: Question[] = [];
   public myvalue: string[] = [];
@@ -28,6 +29,9 @@ export class PartecipateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQnA();
+    this.form = new FormGroup({
+      id_question_answer: new FormControl('', [Validators.required])
+    });
   }
 
   public async getQnA() {
