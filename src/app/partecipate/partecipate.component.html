@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Survey Title</h1>
+<h1 mat-dialog-title>{{this.title}}</h1>
 <mat-dialog-content class="mat-typography">
-  <label id="example-radio-group-label">Choose from the option:</label><br>
-  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="myvalue">
-    <mat-radio-button class="example-radio-button" *ngFor="let obj of myoptions" [value]="obj">
+  <label id="example-radio-group-label">{{this.question}}</label><br>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="group" [(ngModel)]="myvalue">
+    <mat-radio-button class="item" *ngFor="let obj of this.answers" [value]="obj">
       {{obj}}
     </mat-radio-button>
   </mat-radio-group>

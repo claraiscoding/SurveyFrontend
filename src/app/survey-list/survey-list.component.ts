@@ -17,7 +17,7 @@ export class SurveyListComponent implements OnInit {
   public surveyDone: SURVEY_TABLE[] = [];
   public displayedColumns: string[] = ['Name', 'Category', 'Publishing Date', 'Ending Date', 'Created By', 'id'];
   public dataSource = this.surveyTable;
-  public chosen: SURVEY_TABLE = {
+  /*public chosen: SURVEY_TABLE = {
     id: 9,
     id_mail: "",
     id_category: 0,
@@ -29,7 +29,7 @@ export class SurveyListComponent implements OnInit {
       id: 0,
       name: "",
     }
-  };
+  };*/
   public chosen_id: number = 0;
 
   constructor(private route: ActivatedRoute, private router: Router, private ras: RestApiService, public dialog: MatDialog) { }
@@ -76,10 +76,11 @@ export class SurveyListComponent implements OnInit {
 
   public checkSurvey(row: any) {
     let ret = true;
+    if (this.surveyDone.length === 0) this.chosen_id = row['id'];
     this.surveyDone.forEach(element => {
-      if (element.id === row['id']) {
-        ret = false;
-        this.chosen = row;
+      if (element.id === row['id']) { ret = false; }
+      else {
+        //this.chosen = row;
         this.chosen_id = row["id"];
       }
     });
