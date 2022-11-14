@@ -15,8 +15,6 @@ export class PartecipateComponent implements OnInit {
   public id_survey: number = this.data.id_survey;
   public error: string = "";
   public QnAs: QnA[] = [];
-  public question: string = "";
-  public answers: string[] = [];
   public values: Question[] = [];
   public myvalue: string ="NA";
   public myoptions: string[] = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];

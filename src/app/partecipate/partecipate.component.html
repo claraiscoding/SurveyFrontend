@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>{{this.title}}</h1>
 <mat-dialog-content class="mat-typography">
-  <label id="example-radio-group-label">{{this.question}}</label><br>
+  <label id="example-radio-group-label">{{this.values[0].question}}</label><br>
   <mat-radio-group aria-labelledby="example-radio-group-label" class="group" [(ngModel)]="myvalue">
-    <mat-radio-button class="item" *ngFor="let obj of this.answers" [value]="obj">
+    <mat-radio-button class="item" *ngFor="let obj of this.values[0].answers" [value]="obj">
       {{obj}}
     </mat-radio-button>
   </mat-radio-group>
