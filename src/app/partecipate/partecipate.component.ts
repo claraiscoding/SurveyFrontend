@@ -16,8 +16,7 @@ export class PartecipateComponent implements OnInit {
   public error: string = "";
   public QnAs: QnA[] = [];
   public values: Question[] = [];
-  public myvalue: string ="NA";
-  public myoptions: string[] = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+  public myvalue: string = "";
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     title: string,
@@ -35,7 +34,6 @@ export class PartecipateComponent implements OnInit {
     await this.ras.callApi('http://localhost:8080/survey/api/survey-composition/' + this.id_survey, 'GET', '')
       .then((res) => {
         this.QnAs = res;
-
         let id_prec = 0;
         let q = new Question("", []);
         let check = false;
@@ -52,17 +50,6 @@ export class PartecipateComponent implements OnInit {
           q.addAnswer(answer);
         }
         this.values.push(q);
-
-
-
-
-
-
-        /*this.question = this.QnAs[0].question_answer.question.question;
-        this.answers[0] = this.QnAs[0].question_answer.answer.answer;
-        this.answers[1] = this.QnAs[1].question_answer.answer.answer;
-        this.answers[2] = this.QnAs[2].question_answer.answer.answer;
-        this.answers[3] = this.QnAs[3].question_answer.answer.answer;*/
       }).catch((err) => {
         this.error = "Cannot retrieve data";
       });
@@ -107,7 +94,5 @@ export class Question {
     this.question = question;
     this.answers = answers;
   }
-  public addAnswer (answer: string) {
-    this.answers.push(answer);
-  }
+  public addAnswer (answer: string) { this.answers.push(answer); }
 }

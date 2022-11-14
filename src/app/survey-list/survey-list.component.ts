@@ -31,6 +31,7 @@ export class SurveyListComponent implements OnInit {
     }
   };*/
   public chosen_id: number = 0;
+  public chosen_name: string = "";
 
   constructor(private route: ActivatedRoute, private router: Router, private ras: RestApiService, public dialog: MatDialog) { }
 
@@ -66,7 +67,7 @@ export class SurveyListComponent implements OnInit {
     config.width        = "1000px";
     config.height       = "800px";
     config.data         = {
-      title: "Survey",
+      title: this.chosen_name,
       component: "survey",
       mail: this.mail,
       id_survey: this.chosen_id
@@ -76,12 +77,16 @@ export class SurveyListComponent implements OnInit {
 
   public checkSurvey(row: any) {
     let ret = true;
-    if (this.surveyDone.length === 0) this.chosen_id = row['id'];
+    if (this.surveyDone.length === 0) {
+      this.chosen_id = row['id'];
+      this.chosen_name = row["name"];
+    }
     this.surveyDone.forEach(element => {
       if (element.id === row['id']) { ret = false; }
       else {
         //this.chosen = row;
         this.chosen_id = row["id"];
+        this.chosen_name = row["name"];
       }
     });
     return ret;

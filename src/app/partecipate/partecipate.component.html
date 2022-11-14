@@ -1,12 +1,13 @@
 <h1 mat-dialog-title>{{this.title}}</h1>
 <mat-dialog-content class="mat-typography">
-  <label id="example-radio-group-label">{{this.values[0].question}}</label><br>
-  <mat-radio-group aria-labelledby="example-radio-group-label" class="group" [(ngModel)]="myvalue">
-    <mat-radio-button class="item" *ngFor="let obj of this.values[0].answers" [value]="obj">
-      {{obj}}
-    </mat-radio-button>
-  </mat-radio-group>
-  <div>Value chosen is : {{myvalue}}</div>
+  <div *ngFor="let quest of this.values">
+    <label id="radio-group-label">{{quest.question}}</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="group" [(ngModel)]="myvalue">
+      <mat-radio-button class="item" *ngFor="let ans of quest.answers">
+        {{ans}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
   <mat-dialog-actions>
     <button mat-raised-button class="partecipate-button" color="primary">Confirm</button>
     <button mat-raised-button class="partecipate-button" color="basic" (click)="close()">Close</button>
