@@ -1,7 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RestApiService} from "../services/rest-api.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-partecipate',
@@ -16,7 +17,7 @@ export class PartecipateComponent implements OnInit {
   public error: string = "";
   public QnAs: QnA[] = [];
   public values: Question[] = [];
-  public myvalue: string = "";
+  public myvalue: string[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     title: string,
@@ -47,7 +48,8 @@ export class PartecipateComponent implements OnInit {
             q = new Question(question, []);
           }
           let answer = this.QnAs[i].question_answer.answer.answer;
-          q.addAnswer(answer);
+          let id_question_answer = this.QnAs[i].id_question_answer;
+          q.addAnswer(new Answer(answer, id_question_answer));
         }
         this.values.push(q);
       }).catch((err) => {
@@ -88,11 +90,21 @@ export interface ANSWER {
 
 export class Question {
   public question: string = "";
-  public answers: string[] = [];
+  public answers: Answer[] = [];
 
-  constructor (question: string, answers: string[]) {
+  constructor (question: string, answers: Answer[]) {
     this.question = question;
     this.answers = answers;
   }
-  public addAnswer (answer: string) { this.answers.push(answer); }
+  public addAnswer (answer: Answer) { this.answers.push(answer); }
+}
+
+export class Answer {
+  public answer: string = "";
+  public id_question_answer: number = 0;
+
+  constructor (answer: string, id_question_answer: number) {
+    this.answer = answer;
+    this.id_question_answer = id_question_answer;
+  }
 }
