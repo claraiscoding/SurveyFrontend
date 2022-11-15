@@ -2,17 +2,16 @@
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="form">
     <div *ngFor="let quest of this.values" class="form-group">
-      <mat-radio-group aria-labelledby="radio-group" class="group" [(ngModel)]="myvalue">
+      <mat-radio-group aria-labelledby="radio-group" class="group">
           <label id="radio-group-label">{{quest.question}}</label>
           <mat-radio-button class="item" *ngFor="let ans of quest.answers" [value]="ans.id_question_answer" formControlName="id_question_answer">
             {{ans.answer}}
           </mat-radio-button>
-          <p>Value: {{myvalue}}</p>
       </mat-radio-group>
     </div>
   </form>
   <mat-dialog-actions>
-    <button mat-raised-button class="partecipate-button" color="primary">Confirm</button>
+    <button mat-raised-button class="partecipate-button" color="primary" (click)="confirm()">Confirm</button>
     <button mat-raised-button class="partecipate-button" color="basic" (click)="close()">Close</button>
   </mat-dialog-actions>
 </mat-dialog-content>

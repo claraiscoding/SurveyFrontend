@@ -18,7 +18,6 @@ export class PartecipateComponent implements OnInit {
   public form!: FormGroup;
   public QnAs: QnA[] = [];
   public values: Question[] = [];
-  public myvalue: string[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     title: string,
@@ -60,6 +59,8 @@ export class PartecipateComponent implements OnInit {
         this.error = "Cannot retrieve data";
       });
   }
+
+  public confirm () { }
 
   public close() {
     this.dialogRef.close();

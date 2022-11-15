@@ -79,7 +79,7 @@ export class SurveyListComponent implements OnInit {
     let ret = true;
     if (this.surveyDone.length === 0) {
       this.chosen_id = row['id'];
-      this.chosen_name = row["name"];
+      this.chosen_name = row['name'];
     }
     this.surveyDone.forEach(element => {
       if (element.id === row['id']) { ret = false; }
